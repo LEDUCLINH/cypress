@@ -1,0 +1,7 @@
+{
+  "viewportWidth": 1280,
+  "viewportHeight": 768,
+  "env": {
+    "LUNCHURL": "https://portal.digihcs.com/lun"
+  }
+}

@@ -1,0 +1,36 @@
+before_script:
+  - export PATH=$PATH:/home/gitlab-runner/.nvm/versions/node/v12.10.0/bin/
+
+stages:
+  - installDependencies
+  - test
+
+cache:
+  paths:
+    - node_modules
+
+installDependencies:
+  stage: installDependencies
+  script: npm install
+  artifacts:
+    paths:
+      - node_modules/
+  only:
+    - cicd
+
+.cypressArtifacts:
+  stage: test
+  artifacts:
+    expire_in: 1 day
+    paths:
+      - cypress/screenshots
+      - cypress/videos
+    when: on_failure
+
+test-job1:
+  stage: test
+  extends: .cypressArtifacts
+  script:
+    - ./node_modules/.bin/cypress run --env configFile=production --spec cypress/integration/job1/*
+  only:
+    - cicd
