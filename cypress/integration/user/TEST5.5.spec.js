@@ -30,5 +30,9 @@ describe('TEST EXPORT FILE EXCEL USER', function() {
     cy.get('[name="exportUsers"]')
       .should('be.visible')
       .and('contain', 'Export File')
+      .click()
+
+    cy.get('.innos-ui-translate-notification-notice')
+      .should('be.visible')
   })
 })
