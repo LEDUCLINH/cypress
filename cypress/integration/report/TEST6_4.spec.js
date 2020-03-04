@@ -3,21 +3,21 @@ describe('Trang Report', () => {
          cy.login('superadmin')
     })
     
-    it('Xuat file excel', () => {
-        cy.contains('REPORT').click()
-        cy.url().should('include', 'report')
+    // it('Xuat file excel', () => {
+    //     cy.contains('REPORT').click()
+    //     cy.url().should('include', 'report')
         
-        cy.contains('Export File')
-          .should('be.visible')
-          .click();
+    //     cy.contains('Export File')
+    //       .should('be.visible')
+    //       .click();
 
-        cy.contains('Success')
-        cy.wait(2000)
-        cy.contains('Mutant File')
-        .should('be.visible')
-        .click()
-        cy.contains('Success')
-    })
+    //     cy.contains('Success')
+    //     cy.wait(2000)
+    //     cy.contains('Mutant File')
+    //     .should('be.visible')
+    //     .click()
+    //     cy.contains('Success')
+    // })
 
 
     it('Close Menu', () => {
