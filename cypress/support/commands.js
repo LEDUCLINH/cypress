@@ -11,8 +11,8 @@ Cypress.Commands.add('login', (name) => {
           "password": user.password
         }
       },
-      "query": `mutation ($input: LoginUserInput!) {
-        login(input: $input) {
+      "query": `mutation ($loginInput: LoginUserInput!) {
+        login(input: $loginInput) {
           token
           userPermissions {
             siteId
