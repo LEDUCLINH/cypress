@@ -1,7 +1,6 @@
-const INPUT_REASON_LOCK = 'khong xac nhan'
-
 describe('TEST LOCK AND UNLOCK USER', function() {
   beforeEach(() => {
+    cy.randomStr('w{12}').as('INPUT_REASON_LOCK')
     cy.visit('/')
     cy.wait(1000)
     cy.fixture("users/superadmin.json").then(user => {
@@ -28,7 +27,8 @@ describe('TEST LOCK AND UNLOCK USER', function() {
       cy.wait(1000)
   })
 })
-  it('lock and unlock user', () => {
+
+  it('lock and unlock user', function (){
     cy.get('[name="btnLockNUnlockUser"]')
       .should('be.visible')
     
@@ -46,7 +46,7 @@ describe('TEST LOCK AND UNLOCK USER', function() {
 
     cy.get('[placeholder="Input reason"]')
       .should('be.visible')
-      .type(INPUT_REASON_LOCK)
+      .type(this.INPUT_REASON_LOCK)
 
     cy.get('.ok-btn')
       .should('be.visible')
