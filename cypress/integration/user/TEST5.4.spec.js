@@ -32,16 +32,18 @@ describe('TEST LOCK AND UNLOCK USER', function() {
     cy.get('[name="btnLockNUnlockUser"]')
       .should('be.visible')
     
-    cy.get('[name="btnLockNUnlockUser"]')
-      .last()
+    cy.get('[name="btnLockNUnlockUser"]:enabled')
+      .contains('Lock')
+      .first()
       .click()
 
     cy.get('.cancel-btn')
       .should('be.visible')
       .click()
 
-    cy.get('[name="btnLockNUnlockUser"]')
-      .last()
+    cy.get('[name="btnLockNUnlockUser"]:enabled')
+      .contains('Lock')
+      .first()
       .click()
 
     cy.get('[placeholder="Input reason"]')
@@ -56,7 +58,8 @@ describe('TEST LOCK AND UNLOCK USER', function() {
       .should('be.visible')
 
     cy.wait(2500)
-    cy.get('[name="btnLockNUnlockUser"]')
+    cy.get('[name="btnLockNUnlockUser"]:enabled')
+      .contains('Unlock')
       .first()
       .click()
 
